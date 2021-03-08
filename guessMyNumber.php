@@ -22,7 +22,9 @@
     }
 
     function sumar_intentos() {
-      $_SESSION['intentos'] = $_SESSION['intentos']+1;
+      if (isset($_SESSION['intentos'])) {
+        $_SESSION['intentos'] = $_SESSION['intentos']+1;
+      }
     }
 
     function volverIndice() {

@@ -3,11 +3,11 @@
     class GamePrimeraModalidad extends GuessMyNumber {
 
       function numeroMasPequeño() {
-        $_SESSION['rangoMedio'] = floor($_SESSION['rangoMedio']/2);
+        $_SESSION['rangoMedio'] = ceil((min(1,$_SESSION['rangoMedio']) + max(1,$_SESSION['rangoMedio']))/2);
       }
 
       function numeroMasGrande() {
-        $_SESSION['rangoMedio'] = floor($_SESSION['rangoMedio'] + $_SESSION['rangoMedio']/2);
+        $_SESSION['rangoMedio'] = ceil(((min(1,$_SESSION['rangoMedio']) + max(1,$_SESSION['rangoMedio']))/2) + $_SESSION['rangoMedio']);
       }
 
       function check_rangoMedio() {
@@ -62,6 +62,8 @@
               echo "<br> Has seleccionado más pequeño, pulsa el botón confirmar";
             } elseif ( $_SESSION['rangoMedio'] > $_SESSION['posibilidad']) {
               $_SESSION['rangoMedio'] = $_SESSION['posibilidad'];
+            } elseif ( $_SESSION['rangoMedio'] <= 0) {
+              $_SESSION['rangoMedio'] = 1;
             }
           ?>
       </form>

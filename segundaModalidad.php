@@ -37,7 +37,8 @@
     <div id="formularioSegundaModalidad">
       <h4>Introduce un número del 1 al <?= $_SESSION["posibilidad"] ?></h2>
       <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
-      Número: <input type="text" name="fnumber">
+      <!--Número: <input type="text" name="fnumber">-->
+      <input type="number" name="fnumber" min="1" max="<?= $_SESSION["posibilidad"] ?>" required>
       <input type="hidden" name="posibilidad" value="<?= $_POST['posibilidad'] ?>">
       <input type="submit" name="submit" value="Confirmar" class="button" id="botonConfirmar">
       <?php
